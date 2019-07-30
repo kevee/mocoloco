@@ -7,6 +7,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
+    "@rebass/grid": "^6.0.0",
     "dotenv": "^8.0.0",
     "facepaint": "^1.2.1",
     "gatsby": "^2.13.29",
@@ -20,10 +21,12 @@
     "gatsby-source-filesystem": "^2.1.6",
     "gatsby-transformer-json": "^2.2.2",
     "gatsby-transformer-sharp": "^2.2.4",
+    "leaflet": "^1.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-leaflet": "^2.4.0",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19"
   },
