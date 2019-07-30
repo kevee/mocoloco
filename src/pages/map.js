@@ -4,10 +4,10 @@ import { Map, GeoJSON, Popup, TileLayer } from 'react-leaflet'
 import { graphql } from 'gatsby'
 
 const MapPage = ({ data }) => (
-  <Layout title="mocoloco">
+  <Layout title="mocoloco" noHeadingMargin={true}>
     {typeof window !== 'undefined' && (
       <Map
-        style={{ width: '100%', height: '90vh' }}
+        style={{ width: '100%', height: 'calc(100vh - 18px)' }}
         center={[36.3530149, -121.6947624]}
         zoom={9}
       >

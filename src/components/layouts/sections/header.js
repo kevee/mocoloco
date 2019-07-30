@@ -17,8 +17,12 @@ const Brand = styled(Link)`
 
 const HeaderWrapper = styled.header`
   padding: 0.75rem 0;
-  margin-bottom: 1rem;
   border-bottom: 2.5px ${colors.primary.dark} solid;
+  ${props =>
+    !props.noHeadingMargin &&
+    `
+  margin-bottom: 1rem;
+  `}
 `
 
 const NavigationList = styled.ul`
@@ -31,8 +35,8 @@ const NavigationList = styled.ul`
   }
 `
 
-const Header = () => (
-  <HeaderWrapper>
+const Header = ({ noHeadingMargin }) => (
+  <HeaderWrapper noHeadingMargin={noHeadingMargin}>
     <Container>
       <Flex>
         <Box width={[1, 3 / 12]} mr={[0, 3]}>
