@@ -5,10 +5,10 @@ const input = JSON.parse(fs.readFileSync('in.json'))
 const features = {}
 
 input.features.forEach(feature => {
-  if (typeof features[feature.properties.FIRE_DIST] === 'undefined') {
-    features[feature.properties.FIRE_DIST] = []
+  if (typeof features[feature.properties.UNIT_NAME] === 'undefined') {
+    features[feature.properties.UNIT_NAME] = []
   }
-  features[feature.properties.FIRE_DIST].push(feature)
+  features[feature.properties.UNIT_NAME].push(feature)
 })
 
 Object.keys(features).forEach(name => {
