@@ -3,7 +3,6 @@ import Layout from '../components/layouts/default'
 import { Map, GeoJSON, Popup, TileLayer } from 'react-leaflet'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
-import 'leaflet/dist/leaflet.css'
 
 const MapElement = styled(Map)`
   width: 100%;
@@ -11,15 +10,17 @@ const MapElement = styled(Map)`
 `
 const MapPage = ({ data }) => (
   <Layout title="mocoloco">
-    <MapElement center={[36.3530149, -121.6947624]} zoom={9}>
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      />
-      {data.allOutline.nodes.map(outline => (
-        <GeoJSON data={JSON.parse(outline.outline)} />
-      ))}
-    </MapElement>
+    {typeof window !== 'undefined' && (
+      <MapElement center={[36.3530149, -121.6947624]} zoom={9}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {data.allOutline.nodes.map(outline => (
+          <GeoJSON data={JSON.parse(outline.outline)} />
+        ))}
+      </MapElement>
+    )}
   </Layout>
 )
 
