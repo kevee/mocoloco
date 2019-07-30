@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import Header from './sections/header.js'
 import '../../style/fonts'
 
