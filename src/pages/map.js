@@ -6,7 +6,11 @@ import { graphql } from 'gatsby'
 const MapPage = ({ data }) => (
   <Layout title="mocoloco">
     {typeof window !== 'undefined' && (
-      <Map style={{width: '100%', height: '90vh'}} center={[36.3530149, -121.6947624]} zoom={9}>
+      <Map
+        style={{ width: '100%', height: '90vh' }}
+        center={[36.3530149, -121.6947624]}
+        zoom={9}
+      >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -14,7 +18,7 @@ const MapPage = ({ data }) => (
         {data.allOutline.nodes.map(outline => (
           <GeoJSON data={JSON.parse(outline.outline)} />
         ))}
-      </MapElement>
+      </Map>
     )}
   </Layout>
 )
