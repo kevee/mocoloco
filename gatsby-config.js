@@ -27,11 +27,11 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.MOCOLOCO_CONTENTFUL_SPACE_ID,
-        // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.MOCOLOCO_CONTENTFUL_TOKEN,
       },
     },
     `gatsby-transformer-geojson-outline`,
+    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
