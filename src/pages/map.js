@@ -1,20 +1,12 @@
 import React, { useState } from 'react'
 import Layout from '../components/layouts/default'
-import {
-  Map,
-  GeoJSON,
-  Marker,
-  TileLayer,
-  Popup,
-  LeafletConsumer,
-} from 'react-leaflet'
+import { Map, GeoJSON, Marker, TileLayer } from 'react-leaflet'
 import { graphql } from 'gatsby'
 import { Flex, Box } from '@rebass/grid/emotion'
 import styled from '@emotion/styled'
 import Link from 'gatsby-link'
 import { TextareaInput, FormSubmit } from '../components/common/forms'
 import pointInPolygon from 'point-in-polygon'
-import { ButtonLooksLikeLink } from '../components/common/button'
 import ListUnstyled from '../components/common/list-unstyled'
 import colors from '../style/colors'
 

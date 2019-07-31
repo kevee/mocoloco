@@ -12,7 +12,7 @@ const Page404 = () => (
   <Layout title="mocoloco">
     <PageTitle center={true}>Page not found</PageTitle>
     <Image404>
-      <img src={image} aria-hidden />
+      <img src={image} aria-hidden alt="" />
     </Image404>
   </Layout>
 )

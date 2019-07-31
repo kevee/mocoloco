@@ -1,7 +1,9 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const agencyPages = require(`./src/node/agencies`)
 
-// You can delete this file if you're not using it
+exports.createPages = ({ stage, graphql, actions }) => {
+  return new Promise((resolve, reject) => {
+    agencyPages(graphql, actions).then(() => {
+      resolve()
+    })
+  })
+}
