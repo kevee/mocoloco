@@ -1,7 +1,9 @@
 require('dotenv').config()
 
 module.exports = {
-  siteMetadata: {},
+  siteMetadata: {
+    geolocation: `122999d8974e4f90b1ce826a58bfc283`,
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,

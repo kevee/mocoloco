@@ -30,3 +30,7 @@
   font-weight: 900;
   font-style: normal;
 }
+
+label {
+  font-family: 'Public Sans bold';
+}

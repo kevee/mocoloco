@@ -1,5 +1,6 @@
 import Typography from 'typography'
 import './fonts'
+import colors from './colors'
 
 const backupFonts = [
   'Helvetica Neue',
@@ -16,10 +17,10 @@ const typography = new Typography({
   bodyFontFamily: ['Public Sans'].concat(backupFonts),
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     a: {
-      color: '#056DD4',
+      color: colors.link,
     },
     'a:visited': {
-      color: '#056DD4',
+      color: colors.link,
     },
   }),
 })
