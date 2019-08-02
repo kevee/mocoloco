@@ -1,7 +1,8 @@
 export default {
   primary: {
     dark: '#000',
-    muted: '#4a4a4a',
+    muted: '#6f6f6f',
+    light: '#fff',
   },
   mapItems: [
     '#B35134',

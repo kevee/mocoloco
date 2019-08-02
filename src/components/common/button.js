@@ -5,7 +5,7 @@ import Link from 'gatsby-link'
 const buttonStyle = `
   border: 0;
   background: ${colors.primary.dark};
-  color: #fff;
+  color: ${colors.primary.light} !important;
   padding: 0.5rem;
   cursor: pointer;
   text-align: left;
@@ -17,6 +17,7 @@ const Button = styled.button`
 
 const ButtonAnchor = styled.a`
   ${buttonStyle};
+  text-decoration: none;
 `
 
 const ButtonLink = styled(Link)`

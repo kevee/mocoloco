@@ -20,6 +20,21 @@ module.exports = (graphql, actions) => {
                 id
                 name
                 slug
+                description {
+                  description
+                }
+                meetingAgendasLink
+                meetingMinutesLink
+                meetingDescription {
+                  meetingDescription
+                }
+                members {
+                  name
+                  person {
+                    name
+                    slug
+                  }
+                }
                 type {
                   id
                   name

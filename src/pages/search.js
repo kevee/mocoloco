@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Layout from '../components/layouts/default'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
@@ -8,6 +8,7 @@ import PageTitle from '../components/common/page-title'
 import { TextInput, FormSubmit } from '../components/common/forms'
 import { Flex, Box } from '@rebass/grid/emotion'
 import colors from '../style/colors'
+import url from 'url'
 
 const SearchInput = styled(TextInput)`
   font-size: 1.3rem;
@@ -25,14 +26,41 @@ const SearchFormSubmit = styled.div`
 const SearchResult = ({ agency }) => (
   <div>
     <h3>
-      <Link to={`agency/${agency.slug}`}>{agency.name}</Link>
+      <Link to={`/agency/${agency.slug}`}>{agency.name}</Link>
     </h3>
   </div>
 )
 
 const Search = ({ data }) => {
   const [searchQuery, setSearchQuery] = useState('')
-  const [searchResults, setSearchResults] = useState('')
+  const [searchResults, setSearchResults] = useState([])
+
+  const findAgencies = () => {
+    const results = []
+    data.allContentfulAgency.nodes.forEach(agency => {
+      if (agency.name.toLowerCase().search(searchQuery) > -1) {
+        results.push(agency)
+      }
+    })
+    results.sort((a, b) => {
+      return a.name.toLowerCase().trim() < b.name.toLowerCase().trim() ? -1 : 1
+    })
+    setSearchResults(results)
+  }
+  useEffect(() => {
+    if (searchQuery) {
+      return
+    }
+    if (typeof window === 'undefined') {
+      return
+    }
+    const address = url.parse(window.location.href, true)
+    if (address.query && address.query.q) {
+      setSearchQuery(address.query.q)
+      findAgencies()
+    }
+  })
+
   return (
     <Layout title="mocoloco">
       <TextContainer>
@@ -40,18 +68,7 @@ const Search = ({ data }) => {
         <form
           onSubmit={event => {
             event.preventDefault()
-            const results = []
-            data.allContentfulAgency.nodes.forEach(agency => {
-              if (agency.name.toLowerCase().search(searchQuery) > -1) {
-                results.push(agency)
-              }
-            })
-            results.sort((a, b) => {
-              return a.name.toLowerCase().trim() < b.name.toLowerCase().trim()
-                ? -1
-                : 1
-            })
-            setSearchResults(results)
+            findAgencies()
           }}
         >
           <Flex>
@@ -77,7 +94,7 @@ const Search = ({ data }) => {
           <div>
             <h3>Results</h3>
             {searchResults.map(agency => (
-              <SearchResult agency={agency} />
+              <SearchResult key={agency.slug} agency={agency} />
             ))}
           </div>
         )}
