@@ -44,6 +44,20 @@ module.exports = (graphql, actions) => {
                   id
                   name
                 }
+                services {
+                  name
+                  slug
+                  link
+                  description {
+                    childMarkdownRemark {
+                      html
+                    }
+                  }
+                  type {
+                    name
+                    slug
+                  }
+                }
               }
             }
           }

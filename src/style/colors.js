@@ -4,6 +4,10 @@ export default {
     muted: '#6f6f6f',
     light: '#fff',
   },
+  secondary: {
+    light: '#cfe0f2',
+    dark: '#056DD4',
+  },
   mapItems: [
     '#B35134',
     '#BEFF7D',

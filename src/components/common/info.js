@@ -13,7 +13,7 @@ const InfoFlex = styled(Flex)`
 
 const InfoLinkPane = ({ link, title, linkTitle }) => (
   <InfoPane title={title}>
-    <ButtonAnchor target="_blank" href={link}>
+    <ButtonAnchor target="_blank" rel="noopener noreferrer" href={link}>
       {linkTitle}
     </ButtonAnchor>
   </InfoPane>

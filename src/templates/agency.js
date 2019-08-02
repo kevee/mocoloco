@@ -7,6 +7,7 @@ import { LeadParagraph, SectionTitle } from '../components/common/type'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { InfoPane, InfoLinkPane } from '../components/common/info'
+import { ServiceList } from '../components/common/services'
 
 const AgencyType = styled.strong`
   font-size: 1.4rem;
@@ -23,6 +24,12 @@ const AgencyPage = ({ pageContext }) => {
         </p>
         <LeadParagraph>{agency.description.description}</LeadParagraph>
         {agency.outline && <AgencyMap outline={agency.outline} />}
+        {agency.services && (
+          <>
+            <SectionTitle>Services</SectionTitle>
+            <ServiceList services={agency.services} agency={agency} />
+          </>
+        )}
         <SectionTitle>Meetings</SectionTitle>
         {agency.meetingDescription && (
           <LeadParagraph>
