@@ -25,7 +25,9 @@ const AgencyPage = ({ pageContext }) => {
         {agency.description && (
           <LeadParagraph>{agency.description.description}</LeadParagraph>
         )}
-        {agency.outline && <AgencyMap outline={agency.outline} />}
+        {agency.outline && typeof window !== 'undefined' && (
+          <AgencyMap outline={agency.outline} />
+        )}
         {agency.services && (
           <>
             <SectionTitle>Services</SectionTitle>
@@ -84,9 +86,7 @@ const AgencyMap = ({ outline }) => (
       url="https://api.mapbox.com/styles/v1/keveemiller/cjyra1vuc794c1cp458r449wt/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoia2V2ZWVtaWxsZXIiLCJhIjoiY2p5cjl0aWRvMDZmYjNjcHUzeDVwOHN3MCJ9.E-R7THevDHSXUosHYYQJwQ"
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     />
-    <LeafletConsumer>
-      {context => <GeoJSON data={JSON.parse(outline.outline)} />}
-    </LeafletConsumer>
+    <GeoJSON data={JSON.parse(outline.outline)} />
   </Map>
 )
 
