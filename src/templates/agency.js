@@ -22,7 +22,9 @@ const AgencyPage = ({ pageContext }) => {
         <p>
           <AgencyType>{agency.type.name}</AgencyType>
         </p>
-        <LeadParagraph>{agency.description.description}</LeadParagraph>
+        {agency.description && (
+          <LeadParagraph>{agency.description.description}</LeadParagraph>
+        )}
         {agency.outline && <AgencyMap outline={agency.outline} />}
         {agency.services && (
           <>
