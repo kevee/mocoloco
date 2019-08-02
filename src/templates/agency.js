@@ -2,23 +2,14 @@ import React from 'react'
 import Layout from '../components/layouts/default'
 import { TextContainer } from '../components/common/container'
 import PageHeader from '../components/common/page-title'
-import { Flex, Box } from '@rebass/grid/emotion'
 import { Map, GeoJSON, TileLayer, LeafletConsumer } from 'react-leaflet'
 import { LeadParagraph, SectionTitle } from '../components/common/type'
-import { ButtonAnchor } from '../components/common/button'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-
-const AgencyInfoTitle = styled.h3`
-  font-size: 1.1rem;
-`
+import { InfoPane, InfoLinkPane } from '../components/common/info'
 
 const AgencyType = styled.strong`
   font-size: 1.4rem;
-`
-
-const AgencyInfoFlex = styled(Flex)`
-  margin-bottom: 1rem;
 `
 
 const AgencyPage = ({ pageContext }) => {
@@ -39,14 +30,14 @@ const AgencyPage = ({ pageContext }) => {
           </LeadParagraph>
         )}
         {agency.meetingAgendasLink && (
-          <AgencyInfoLink
+          <InfoLinkPane
             link={agency.meetingAgendasLink}
             linkTitle="View meeting agendas"
             title="Meeting agendas"
           />
         )}
         {agency.meetingMinutesLink && (
-          <AgencyInfoLink
+          <InfoLinkPane
             link={agency.meetingMinutesLink}
             linkTitle="View meeting minutes"
             title="Meeting minutes"
@@ -56,11 +47,11 @@ const AgencyPage = ({ pageContext }) => {
           <>
             <SectionTitle>People</SectionTitle>
             {agency.members.map(position => (
-              <AgencyInfo title={position.name}>
+              <InfoPane title={position.name}>
                 <Link to={`/person/${position.person.slug}`}>
                   {position.person.name}
                 </Link>
-              </AgencyInfo>
+              </InfoPane>
             ))}
           </>
         )}
@@ -68,23 +59,6 @@ const AgencyPage = ({ pageContext }) => {
     </Layout>
   )
 }
-
-const AgencyInfoLink = ({ link, title, linkTitle }) => (
-  <AgencyInfo title={title}>
-    <ButtonAnchor target="_blank" href={link}>
-      {linkTitle}
-    </ButtonAnchor>
-  </AgencyInfo>
-)
-
-const AgencyInfo = ({ title, children }) => (
-  <AgencyInfoFlex>
-    <Box width={[1 / 3]} mr={3}>
-      <AgencyInfoTitle>{title}</AgencyInfoTitle>
-    </Box>
-    <Box width={[2 / 3]}>{children}</Box>
-  </AgencyInfoFlex>
-)
 
 const AgencyMap = ({ outline }) => (
   <Map
