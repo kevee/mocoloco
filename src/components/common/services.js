@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import colors from '../../style/colors'
+import { PropTypes } from 'prop-types'
 
 const ServiceListElement = styled.ul`
   list-style-type: none;
@@ -9,11 +10,12 @@ const ServiceListElement = styled.ul`
   h4 {
     margin-bottom: 0.5rem;
   }
-  > li {
-    border: ${colors.primary.muted} 1px solid;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-  }
+`
+
+const ServiceListItem = styled.div`
+  border: ${colors.primary.muted} 1px solid;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
 `
 
 const ServiceTypeList = styled.ul`
@@ -27,7 +29,7 @@ const ServiceTypeList = styled.ul`
 `
 
 const Service = ({ service, agency }) => (
-  <li>
+  <ServiceListItem>
     <h4>
       <Link to={`/agency/${agency.slug}/service/${service.slug}`}>
         {service.name}
@@ -43,15 +45,27 @@ const Service = ({ service, agency }) => (
         __html: service.description.childMarkdownRemark.html,
       }}
     />
-  </li>
+  </ServiceListItem>
 )
+
+Service.propTypes = {
+  agency: PropTypes.object,
+  service: PropTypes.object,
+}
 
 const ServiceList = ({ services, agency }) => (
   <ServiceListElement>
     {services.map(service => (
-      <Service service={service} agency={agency} />
+      <li>
+        <Service service={service} agency={agency} />
+      </li>
     ))}
   </ServiceListElement>
 )
+
+ServiceList.propTypes = {
+  agency: PropTypes.object,
+  services: PropTypes.array,
+}
 
 export { ServiceList, Service }

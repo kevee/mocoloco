@@ -37,13 +37,18 @@ module.exports = (graphql, actions) => {
         }
 
         result.data.allContentfulService.nodes.forEach(service => {
-          createPage({
-            path: `agency/${service.agency[0].slug}/service/${service.slug}`,
-            component: serviceTemplate,
-            context: {
-              service: service,
-            },
-          })
+          if (
+            typeof service.agency !== 'undefined' &&
+            typeof service.agency[0] !== 'undefined'
+          ) {
+            createPage({
+              path: `agency/${service.agency[0].slug}/service/${service.slug}`,
+              component: serviceTemplate,
+              context: {
+                service: service,
+              },
+            })
+          }
         })
         report.success(`built individual service pages`)
         return

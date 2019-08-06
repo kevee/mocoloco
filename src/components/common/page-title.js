@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import colors from '../../style/colors'
+import { PropTypes } from 'prop-types'
 
 const PageHeader = styled.h1`
   ${props =>
@@ -15,5 +16,10 @@ const PageHeader = styled.h1`
     text-align: center;
   `};
 `
+
+PageHeader.propTypes = {
+  noBorder: PropTypes.bool,
+  center: PropTypes.bool,
+}
 
 export default PageHeader

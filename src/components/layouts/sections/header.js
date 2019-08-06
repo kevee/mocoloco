@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from '@emotion/styled'
 import colors from '../../../style/colors'
@@ -58,5 +59,9 @@ const Header = ({ noHeadingMargin }) => (
     </Container>
   </HeaderWrapper>
 )
+
+Header.propTypes = {
+  noHeadingMargin: PropTypes.bool,
+}
 
 export default Header

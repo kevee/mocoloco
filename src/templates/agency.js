@@ -6,7 +6,7 @@ import { Map, GeoJSON, TileLayer, LeafletConsumer } from 'react-leaflet'
 import { LeadParagraph, SectionTitle } from '../components/common/type'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import { InfoPane, InfoLinkPane } from '../components/common/info'
+import { InfoPane, InfoLinkPane } from '../components/common/info-pane'
 import { ServiceList } from '../components/common/services'
 
 const AgencyType = styled.strong`

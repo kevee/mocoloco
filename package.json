@@ -8,6 +8,7 @@
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
     "@rebass/grid": "^6.0.0",
+    "@storybook/addon-info": "^5.1.10",
     "dotenv": "^8.0.0",
     "facepaint": "^1.2.1",
     "gatsby": "^2.13.29",
@@ -36,6 +37,12 @@
     "url": "^0.11.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@storybook/addon-actions": "^5.1.10",
+    "@storybook/addon-links": "^5.1.10",
+    "@storybook/addons": "^5.1.10",
+    "@storybook/react": "^5.1.10",
+    "babel-loader": "^8.0.6",
     "prettier": "^1.18.2"
   },
   "keywords": [
@@ -48,7 +55,9 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",

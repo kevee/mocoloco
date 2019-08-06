@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import colors from '../../style/colors'
+import { PropTypes } from 'prop-types'
 
 const textStyle = `
   padding: 0.5rem;
@@ -28,5 +29,9 @@ const FormSubmitElement = styled.input`
 const FormSubmit = ({ value }) => (
   <FormSubmitElement type="submit" value={value} />
 )
+
+FormSubmit.propTypes = {
+  value: PropTypes.string,
+}
 
 export { TextInput, TextareaInput, FormSubmit }
