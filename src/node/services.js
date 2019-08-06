@@ -39,6 +39,7 @@ module.exports = (graphql, actions) => {
         result.data.allContentfulService.nodes.forEach(service => {
           if (
             typeof service.agency !== 'undefined' &&
+            Array.isArray(service.agency) &&
             typeof service.agency[0] !== 'undefined'
           ) {
             createPage({
