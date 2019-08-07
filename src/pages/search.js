@@ -23,12 +23,32 @@ const SearchFormSubmit = styled.div`
   }
 `
 
+const SearchResultElement = styled.div`
+  margin-bottom: 1rem;
+  h3 {
+    margin-bottom: 0.4rem;
+  }
+`
+
+const SearchResultAgencyType = styled.strong`
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 1rem;
+`
+
 const SearchResult = ({ agency }) => (
-  <div>
+  <SearchResultElement>
     <h3>
       <Link to={`/agency/${agency.slug}`}>{agency.name}</Link>
     </h3>
-  </div>
+    {agency.description && (
+      <p>
+        <SearchResultAgencyType>{agency.type.name}</SearchResultAgencyType>
+        {agency.description.description.substr(0, 100)}
+        {agency.description.description.length > 100 && <>...</>}
+      </p>
+    )}
+  </SearchResultElement>
 )
 
 const Search = ({ data }) => {
@@ -90,7 +110,7 @@ const Search = ({ data }) => {
             </Box>
           </Flex>
         </form>
-        {searchResults && (
+        {searchResults && searchResults.length > 0 && (
           <div>
             <h3>Results</h3>
             {searchResults.map(agency => (
@@ -111,6 +131,9 @@ export const query = graphql`
       nodes {
         name
         slug
+        description {
+          description
+        }
         type {
           id
           name
