@@ -5,7 +5,7 @@ import { LeadParagraph } from '../components/common/type'
 import styled from '@emotion/styled'
 import { Flex, Box } from '@rebass/grid/dist/emotion'
 import { TextInput } from '../components/common/forms'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import ListUnstyled from '../components/common/list-unstyled'
 
 const HomeContainer = styled.div`

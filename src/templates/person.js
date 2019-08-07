@@ -22,9 +22,13 @@ const PersonTemplate = ({ pageContext }) => (
           <SectionTitle>Positions</SectionTitle>
           {pageContext.person.position.map(position => (
             <InfoPane title={position.name}>
-              {position.agency.map(agency => (
-                <Link to={`/agency/${agency.slug}`}>{agency.name}</Link>
-              ))}
+              {position.agency && (
+                <>
+                  {position.agency.map(agency => (
+                    <Link to={`/agency/${agency.slug}`}>{agency.name}</Link>
+                  ))}
+                </>
+              )}
             </InfoPane>
           ))}
         </>
