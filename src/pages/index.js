@@ -7,16 +7,25 @@ import { Flex, Box } from '@rebass/grid/dist/emotion'
 import { TextInput } from '../components/common/forms'
 import { Link, graphql } from 'gatsby'
 import ListUnstyled from '../components/common/list-unstyled'
+import condor from '../assets/images/animation/condor.png'
 
 const HomeContainer = styled.div`
-  margin-top: 5rem;
+  margin-top: 3rem;
+`
+
+const Condor = styled.div`
+  text-align: center;
+  margin-top: -50px;
+  img {
+    width: 200px;
+  }
 `
 
 const Index = ({ data }) => {
   const [searchResults, setSearchResults] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   return (
-    <Layout title="mocoloco">
+    <Layout title="mocoloco" noHeadingMargin={true}>
       <TextContainer>
         <HomeContainer>
           <Flex>
@@ -55,6 +64,9 @@ const Index = ({ data }) => {
               </form>
             </Box>
             <Box width={[1 / 3]} ml={[3]}>
+              <Condor>
+                <img src={condor} alt="" />
+              </Condor>
               {searchResults && searchResults.length > 0 && (
                 <ListUnstyled>
                   {searchResults.map((result, index) => (

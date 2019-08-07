@@ -44,6 +44,21 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/assets/images`,
+        ignore: [`**/**.*`],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#056DD4`,
+        showSpinner: false,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-react-leaflet',
       options: {
         linkStyles: true,
