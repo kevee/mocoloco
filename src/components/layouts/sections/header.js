@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import styled from '@emotion/styled'
 import colors from '../../../style/colors'
 import { Container } from '../../common/container'
-import { Flex, Box } from '@rebass/grid/emotion'
+import { Flex, Box } from '../../common/grid'
 
 const Brand = styled(Link)`
   font-size: 1.3rem;
@@ -40,10 +40,10 @@ const Header = ({ noHeadingMargin }) => (
   <HeaderWrapper noHeadingMargin={noHeadingMargin}>
     <Container>
       <Flex>
-        <Box width={[1, 3 / 12]} mr={[0, 3]}>
+        <Box width={[4 / 12]} mr={[0, 3]}>
           <Brand to="/">mocoloco</Brand>
         </Box>
-        <Box width={[1, 9 / 12]}>
+        <Box width={[8 / 12]}>
           <nav>
             <NavigationList>
               <li>

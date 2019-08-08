@@ -1,20 +1,26 @@
 import React, { useState } from 'react'
 import Layout from '../components/layouts/default'
-import { TextContainer } from '../components/common/container'
+import { TextContainer, Container } from '../components/common/container'
 import { LeadParagraph } from '../components/common/type'
 import styled from '@emotion/styled'
-import { Flex, Box } from '@rebass/grid/dist/emotion'
+import { Flex, Box } from '../components/common/grid'
 import { TextInput } from '../components/common/forms'
 import { Link, graphql } from 'gatsby'
 import ListUnstyled from '../components/common/list-unstyled'
 import condor from '../assets/images/animation/condor.png'
+import bp from '../style/breakpoints'
 
 const HomeContainer = styled.div`
-  margin-top: 3rem;
+  ${bp({
+    marginTop: ['1rem', '5rem'],
+  })}
 `
 
 const Condor = styled.div`
   text-align: center;
+  ${bp({
+    display: ['none', 'block'],
+  })}
   margin-top: -50px;
   img {
     width: 200px;
@@ -28,8 +34,8 @@ const Index = ({ data }) => {
     <Layout title="mocoloco" noHeadingMargin={true}>
       <TextContainer>
         <HomeContainer>
-          <Flex>
-            <Box width={[2 / 3]}>
+          <Flex flexWrap="wrap">
+            <Box width={[1, 2 / 3]}>
               <LeadParagraph>
                 Every government agency and service in Monterey County, right
                 here.
@@ -62,11 +68,6 @@ const Index = ({ data }) => {
                   }}
                 ></TextInput>
               </form>
-            </Box>
-            <Box width={[1 / 3]} ml={[3]}>
-              <Condor>
-                <img src={condor} alt="" />
-              </Condor>
               {searchResults && searchResults.length > 0 && (
                 <ListUnstyled>
                   {searchResults.map((result, index) => (
@@ -90,6 +91,11 @@ const Index = ({ data }) => {
                   )}
                 </ListUnstyled>
               )}
+            </Box>
+            <Box width={[1, 1 / 3]} pl={[0, 3]}>
+              <Condor>
+                <img src={condor} alt="" />
+              </Condor>
             </Box>
           </Flex>
           <LeadParagraph></LeadParagraph>

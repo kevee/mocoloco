@@ -3,7 +3,7 @@ import Layout from '../components/layouts/default'
 import PageTitle from '../components/common/page-title'
 import { Container } from '../components/common/container'
 import { Link } from 'gatsby'
-import { Flex, Box } from '@rebass/grid/dist/emotion'
+import { Flex, Box } from '../components/common/grid'
 import { ButtonAnchor } from '../components/common/button'
 
 const ServiceTemplate = ({ pageContext }) => (

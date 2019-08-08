@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 import { TextContainer } from '../components/common/container'
 import PageTitle from '../components/common/page-title'
 import { TextInput, FormSubmit } from '../components/common/forms'
-import { Flex, Box } from '@rebass/grid/emotion'
+import { Flex, Box } from '../components/common/grid'
 import colors from '../style/colors'
 import url from 'url'
 

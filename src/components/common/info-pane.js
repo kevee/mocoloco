@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { ButtonAnchor } from './button'
-import { Flex, Box } from '@rebass/grid/emotion'
+import { Flex, Box } from './grid'
 import { PropTypes } from 'prop-types'
 
 const InfoTitle = styled.h3`
