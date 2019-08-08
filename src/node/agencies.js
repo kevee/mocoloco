@@ -33,6 +33,7 @@ module.exports = (graphql, actions) => {
                   lon
                 }
                 meetingAddress {
+                  meetingAddress
                   childMarkdownRemark {
                     html
                   }

@@ -80,6 +80,17 @@ const AgencyPage = ({ pageContext }) => {
                 }}
               />
             )}
+            {agency.meetingAddress && (
+              <a
+                target="_blank"
+                href={`https://www.google.com/maps/dir/?api=1&destination=${agency.meetingAddress.meetingAddress.replace(
+                  /(?:\r\n|\r|\n)/g,
+                  ','
+                )}`}
+              >
+                Get directions
+              </a>
+            )}
           </Box>
         </Flex>
 
@@ -123,7 +134,7 @@ const MeetingLocationMap = ({ location }) => (
   <Map
     style={{ width: '100%', height: '250px' }}
     center={[location.lat, location.lon]}
-    zoom={13}
+    zoom={15}
   >
     <TileLayer
       url="https://api.mapbox.com/styles/v1/keveemiller/cjyra1vuc794c1cp458r449wt/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoia2V2ZWVtaWxsZXIiLCJhIjoiY2p5cjl0aWRvMDZmYjNjcHUzeDVwOHN3MCJ9.E-R7THevDHSXUosHYYQJwQ"
