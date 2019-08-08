@@ -28,6 +28,15 @@ module.exports = (graphql, actions) => {
                 meetingDescription {
                   meetingDescription
                 }
+                meetingGeolocation {
+                  lat
+                  lon
+                }
+                meetingAddress {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
                 members {
                   name
                   person {
