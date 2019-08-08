@@ -28,7 +28,7 @@ InfoLinkPane.propTypes = {
 
 const InfoPane = ({ title, children }) => (
   <InfoFlex>
-    <Box width={[1 / 3]} mr={3}>
+    <Box width={[1 / 3]} pr={3}>
       <InfoTitle>{title}</InfoTitle>
     </Box>
     <Box width={[2 / 3]}>{children}</Box>
