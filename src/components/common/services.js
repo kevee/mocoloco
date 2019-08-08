@@ -2,11 +2,15 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import colors from '../../style/colors'
+import bp from '../../style/breakpoints'
 import { PropTypes } from 'prop-types'
 
 const ServiceListElement = styled.ul`
   list-style-type: none;
   margin: 0;
+  ${bp({
+    columnCount: [1, 2],
+  })}
   h4 {
     margin-bottom: 0.5rem;
   }
