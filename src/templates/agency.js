@@ -16,7 +16,7 @@ const AgencyType = styled.strong`
 const AgencyPage = ({ pageContext }) => {
   const { agency } = pageContext
   return (
-    <Layout title="mocoloco">
+    <Layout title={agency.name}>
       <TextContainer>
         <PageHeader>{agency.name}</PageHeader>
         <p>

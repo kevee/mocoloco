@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../components/layouts/default'
-import { TextContainer, Container } from '../components/common/container'
+import { TextContainer } from '../components/common/container'
 import { LeadParagraph } from '../components/common/type'
 import styled from '@emotion/styled'
 import { Flex, Box } from '../components/common/grid'
