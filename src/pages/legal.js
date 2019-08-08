@@ -5,7 +5,7 @@ import { LeadParagraph } from '../components/common/type'
 import { TextContainer } from '../components/common/container'
 
 const Index = () => (
-  <Layout title="legal">
+  <Layout title="Legal">
     <TextContainer>
       <PageTitle>Legal information</PageTitle>
       <LeadParagraph>

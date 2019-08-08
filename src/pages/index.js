@@ -31,7 +31,7 @@ const Index = ({ data }) => {
   const [searchResults, setSearchResults] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   return (
-    <Layout title="mocoloco" noHeadingMargin={true}>
+    <Layout noHeadingMargin={true}>
       <TextContainer>
         <HomeContainer>
           <Flex flexWrap="wrap">

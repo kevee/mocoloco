@@ -31,6 +31,7 @@ const SearchResultDescription = styled.p`
 const SearchBox = styled(Box)`
   height: 90vh;
   overflow-y: scroll;
+  padding-top: 1rem;
 `
 
 const findCoordinates = coordinates => {
@@ -83,7 +84,7 @@ const MapPage = ({ data }) => {
   const agencies = getAgencies(data)
 
   return (
-    <Layout title="mocoloco" noHeadingMargin={true}>
+    <Layout title="Map" noHeadingMargin={true}>
       <Flex>
         <Box width={[8 / 12]}>
           {typeof window !== 'undefined' && (
@@ -95,7 +96,7 @@ const MapPage = ({ data }) => {
           )}
         </Box>
         <SearchBox width={[4 / 12]} px={3} mt={3}>
-          <h2>Search</h2>
+          <h2>Find agencies in your neighborhood</h2>
           <form
             onSubmit={event => {
               event.preventDefault()

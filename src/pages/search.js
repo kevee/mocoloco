@@ -82,7 +82,7 @@ const Search = ({ data }) => {
   })
 
   return (
-    <Layout title="mocoloco">
+    <Layout title="Search">
       <TextContainer>
         <PageTitle>Search</PageTitle>
         <form

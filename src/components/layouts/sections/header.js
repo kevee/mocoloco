@@ -40,7 +40,7 @@ const Header = ({ noHeadingMargin }) => (
   <HeaderWrapper noHeadingMargin={noHeadingMargin}>
     <Container>
       <Flex>
-        <Box width={[4 / 12]} mr={[0, 3]}>
+        <Box width={[4 / 12]} pr={[0, 3]}>
           <Brand to="/">mocoloco</Brand>
         </Box>
         <Box width={[8 / 12]}>
