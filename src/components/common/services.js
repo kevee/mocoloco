@@ -1,26 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import colors from '../../style/colors'
-import bp from '../../style/breakpoints'
 import { PropTypes } from 'prop-types'
-
-const ServiceListElement = styled.ul`
-  list-style-type: none;
-  margin: 0;
-  ${bp({
-    columnCount: [1, 2],
-  })}
-  h4 {
-    margin-bottom: 0.5rem;
-  }
-`
-
-const ServiceListItem = styled.div`
-  border: ${colors.primary.muted} 1px solid;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-`
+import { BlockList, BlockListItem } from '../common/block-list'
 
 const ServiceTypeList = styled.ul`
   list-style-type: none;
@@ -32,13 +14,17 @@ const ServiceTypeList = styled.ul`
   }
 `
 
+const ServiceTitle = styled.h4`
+  margin: 0;
+`
+
 const Service = ({ service, agency }) => (
-  <ServiceListItem>
-    <h4>
+  <BlockListItem>
+    <ServiceTitle>
       <Link to={`/agency/${agency.slug}/service/${service.slug}`}>
         {service.name}
       </Link>
-    </h4>
+    </ServiceTitle>
     <ServiceTypeList>
       {service.type.map(type => (
         <li>{type.name}</li>
@@ -49,7 +35,7 @@ const Service = ({ service, agency }) => (
         __html: service.description.childMarkdownRemark.html,
       }}
     />
-  </ServiceListItem>
+  </BlockListItem>
 )
 
 Service.propTypes = {
@@ -58,13 +44,13 @@ Service.propTypes = {
 }
 
 const ServiceList = ({ services, agency }) => (
-  <ServiceListElement>
+  <BlockList>
     {services.map(service => (
       <li>
         <Service service={service} agency={agency} />
       </li>
     ))}
-  </ServiceListElement>
+  </BlockList>
 )
 
 ServiceList.propTypes = {

@@ -47,6 +47,9 @@ const Header = ({ noHeadingMargin }) => (
           <nav>
             <NavigationList>
               <li>
+                <Link to="/services">Services</Link>
+              </li>
+              <li>
                 <Link to="/map">Map</Link>
               </li>
               <li>
