@@ -5,6 +5,7 @@ import { Container } from '../components/common/container'
 import { Link } from 'gatsby'
 import { Flex, Box } from '../components/common/grid'
 import { ButtonAnchor } from '../components/common/button'
+import ExternalLink from '../components/common/external-link'
 
 const ServiceTemplate = ({ pageContext }) => (
   <Layout title={pageContext.service.name}>
@@ -32,6 +33,7 @@ const ServiceTemplate = ({ pageContext }) => (
             target="_blank"
           >
             View service
+            <ExternalLink />
           </ButtonAnchor>
         </Box>
       </Flex>
