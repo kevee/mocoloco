@@ -15,6 +15,10 @@ const AgencyType = styled.strong`
   font-size: 1.4rem;
 `
 
+const AgencyDescription = styled.div`
+  font-size: 1.2rem;
+`
+
 const AgencyPage = ({ pageContext }) => {
   const { agency } = pageContext
   return (
@@ -27,7 +31,11 @@ const AgencyPage = ({ pageContext }) => {
               <AgencyType>{agency.type.name}</AgencyType>
             </p>
             {agency.description && (
-              <LeadParagraph>{agency.description.description}</LeadParagraph>
+              <AgencyDescription
+                dangerouslySetInnerHTML={{
+                  __html: agency.description.childMarkdownRemark.html,
+                }}
+              ></AgencyDescription>
             )}
           </Box>
           <Box width={[1, 1 / 3]}>

@@ -21,7 +21,9 @@ module.exports = (graphql, actions) => {
                 name
                 slug
                 description {
-                  description
+                  childMarkdownRemark {
+                    html
+                  }
                 }
                 meetingAgendasLink
                 meetingMinutesLink
