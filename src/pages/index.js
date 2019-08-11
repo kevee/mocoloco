@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../components/layouts/default'
-import { TextContainer } from '../components/common/container'
+import { Container } from '../components/common/container'
 import { LeadParagraph } from '../components/common/type'
 import styled from '@emotion/styled'
 import { Flex, Box } from '../components/common/grid'
@@ -20,10 +20,10 @@ const Index = ({ data }) => {
   const [searchQuery, setSearchQuery] = useState('')
   return (
     <Layout noHeadingMargin={true}>
-      <TextContainer>
+      <Container>
         <HomeContainer>
           <Flex flexWrap="wrap">
-            <Box width={[1, 2 / 3]} pr={[0, 6]}>
+            <Box width={[1, 2 / 3]} px={[0, 20]}>
               <LeadParagraph>
                 Every government agency and service in Monterey County, right
                 here.
@@ -95,7 +95,7 @@ const Index = ({ data }) => {
           </Flex>
           <LeadParagraph></LeadParagraph>
         </HomeContainer>
-      </TextContainer>
+      </Container>
     </Layout>
   )
 }
