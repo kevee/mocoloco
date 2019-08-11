@@ -3,6 +3,8 @@ import Header from './sections/header.js'
 import '../../style/fonts'
 import Footer from './sections/footer.js'
 import Helmet from 'react-helmet'
+import WindowSize from '@reach/window-size'
+import WindowSizeContext from '../../contexts/window-size'
 
 const Layout = ({ title, noHeadingMargin, children }) => (
   <>
@@ -15,7 +17,18 @@ const Layout = ({ title, noHeadingMargin, children }) => (
       {title && <title>{title}</title>}
     </Helmet>
     <Header noHeadingMargin={noHeadingMargin} />
-    <div>{children}</div>
+    <WindowSize>
+      {size => (
+        <WindowSizeContext.Provider
+          value={{
+            size: size,
+            isMobile: size.width < 768,
+          }}
+        >
+          <div>{children}</div>
+        </WindowSizeContext.Provider>
+      )}
+    </WindowSize>
     <Footer />
   </>
 )

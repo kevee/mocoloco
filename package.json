@@ -7,6 +7,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@reach/window-size": "^0.1.4",
     "@rebass/grid": "^6.0.0",
     "@storybook/addon-info": "^5.1.10",
     "dotenv": "^8.0.0",
