@@ -13,13 +13,11 @@ const ServicesPage = ({ data }) => {
         <PageTitle>Services</PageTitle>
         <BlockList>
           {data.allContentfulServiceType.nodes.map(serviceType => (
-            <li>
-              <BlockListItem>
-                <Link to={`/service-type/${serviceType.slug}`}>
-                  {serviceType.name}
-                </Link>
-              </BlockListItem>
-            </li>
+            <BlockListItem key={serviceType.slug}>
+              <Link to={`/service-type/${serviceType.slug}`}>
+                {serviceType.name}
+              </Link>
+            </BlockListItem>
           ))}
         </BlockList>
       </Container>

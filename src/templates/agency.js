@@ -99,7 +99,7 @@ const AgencyPage = ({ pageContext }) => {
           <>
             <SectionTitle>People</SectionTitle>
             {agency.members.map(position => (
-              <InfoPane title={position.name}>
+              <InfoPane key={position.person.slug} title={position.name}>
                 <Link to={`/person/${position.person.slug}`}>
                   {position.person.name}
                 </Link>

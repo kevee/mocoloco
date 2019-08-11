@@ -27,7 +27,7 @@ const Service = ({ service, agency }) => (
     </ServiceTitle>
     <ServiceTypeList>
       {service.type.map(type => (
-        <li>{type.name}</li>
+        <li key={type.name}>{type.name}</li>
       ))}
     </ServiceTypeList>
     <div
@@ -46,7 +46,7 @@ Service.propTypes = {
 const ServiceList = ({ services, agency }) => (
   <BlockList>
     {services.map(service => (
-      <Service service={service} agency={agency} />
+      <Service key={service.slug} service={service} agency={agency} />
     ))}
   </BlockList>
 )

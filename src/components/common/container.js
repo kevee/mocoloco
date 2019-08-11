@@ -10,7 +10,7 @@ const Container = styled.div`
 `
 
 Container.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 }
 
 const TextContainer = styled.div`
@@ -21,7 +21,7 @@ const TextContainer = styled.div`
 `
 
 TextContainer.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 }
 
 export { Container, TextContainer }

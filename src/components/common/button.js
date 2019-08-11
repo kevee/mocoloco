@@ -18,7 +18,7 @@ const Button = styled.button`
 `
 
 Button.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 }
 
 const ButtonAnchor = styled.a`
@@ -27,7 +27,7 @@ const ButtonAnchor = styled.a`
 `
 
 ButtonAnchor.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
   href: PropTypes.string,
 }
 
@@ -37,7 +37,7 @@ const ButtonLink = styled(Link)`
 `
 
 ButtonLink.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
   to: PropTypes.string,
 }
 
@@ -51,7 +51,7 @@ const ButtonLooksLikeLink = styled.button`
   cursor: pointer;
 `
 ButtonLooksLikeLink.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 }
 
 export { Button, ButtonLink, ButtonAnchor, ButtonLooksLikeLink }

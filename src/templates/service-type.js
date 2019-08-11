@@ -33,8 +33,8 @@ const ServiceTemplate = ({ pageContext }) => (
         service.
       </LeadParagraph>
       <BlockList>
-        {pageContext.services.service.map(service => (
-          <BlockListItem>
+        {pageContext.services.service.map((service, index) => (
+          <BlockListItem key={`service-${index}`}>
             <ServiceLink
               to={`/agency/${service.agency[0].slug}/service/${service.slug}`}
             >
