@@ -9,7 +9,9 @@ module.exports = (graphql, actions) => {
       graphql(
         `
           {
-            allContentfulServiceType(sort: { fields: [name] }) {
+            allContentfulServiceType(
+              sort: { fields: [name, service___agency___name] }
+            ) {
               nodes {
                 name
                 slug

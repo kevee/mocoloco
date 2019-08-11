@@ -10,10 +10,12 @@ const BlockList = styled.ul`
   })}
 `
 
-const BlockListItem = styled.div`
+const BlockListItem = styled.li`
   border: ${colors.primary.muted} 1px solid;
   padding: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  width: 100%;
 `
 
 export { BlockList, BlockListItem }

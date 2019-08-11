@@ -6,24 +6,22 @@ storiesOf('Components/Block list', module).add(
   'BlockList',
   () => (
     <BlockList>
-      <li>
-        <BlockListItem>
-          <h3>Title</h3>
-          <p>This is a block!</p>
-        </BlockListItem>
-        <BlockListItem>
-          <h3>Title</h3>
-          <p>This is a block!</p>
-        </BlockListItem>
-        <BlockListItem>
-          <h3>Title</h3>
-          <p>This is a block!</p>
-        </BlockListItem>
-        <BlockListItem>
-          <h3>Title</h3>
-          <p>This is a block!</p>
-        </BlockListItem>
-      </li>
+      <BlockListItem>
+        <h3>Title</h3>
+        <p>This is a block!</p>
+      </BlockListItem>
+      <BlockListItem>
+        <h3>Title</h3>
+        <p>This is a block!</p>
+      </BlockListItem>
+      <BlockListItem>
+        <h3>Title</h3>
+        <p>This is a block!</p>
+      </BlockListItem>
+      <BlockListItem>
+        <h3>Title</h3>
+        <p>This is a block!</p>
+      </BlockListItem>
     </BlockList>
   ),
   {

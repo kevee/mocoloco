@@ -63,7 +63,9 @@ const Search = ({ data }) => {
       }
     })
     results.sort((a, b) => {
-      return a.name.toLowerCase().trim() < b.name.toLowerCase().trim() ? -1 : 1
+      return a.sortName.toLowerCase().trim() < b.sortName.toLowerCase().trim()
+        ? -1
+        : 1
     })
     setSearchResults(results)
   }
@@ -127,9 +129,10 @@ export default Search
 
 export const query = graphql`
   {
-    allContentfulAgency(sort: { fields: [name] }) {
+    allContentfulAgency(sort: { fields: [sortName] }) {
       nodes {
         name
+        sortName
         slug
         description {
           description

@@ -6,9 +6,22 @@ import { Link } from 'gatsby'
 import { BlockList, BlockListItem } from '../components/common/block-list'
 import { LeadParagraph } from '../components/common/type'
 import styled from '@emotion/styled'
+import colors from '../style/colors'
 
 const ServiceTitle = styled.h4`
   margin: 0;
+`
+
+const ServiceAgencyTitle = styled.p`
+  margin-bottom: 0.5rem;
+`
+
+const ServiceLink = styled(Link)`
+  color: ${colors.primary.dark};
+  text-decoration: none;
+  &:visited {
+    color: ${colors.primary.dark};
+  }
 `
 
 const ServiceTemplate = ({ pageContext }) => (
@@ -21,17 +34,14 @@ const ServiceTemplate = ({ pageContext }) => (
       </LeadParagraph>
       <BlockList>
         {pageContext.services.service.map(service => (
-          <li>
-            <BlockListItem>
-              <ServiceTitle>
-                <Link
-                  to={`/agency/${service.agency[0].slug}/service/${service.slug}`}
-                >
-                  {service.agency[0].name}
-                </Link>
-              </ServiceTitle>
-            </BlockListItem>
-          </li>
+          <BlockListItem>
+            <ServiceLink
+              to={`/agency/${service.agency[0].slug}/service/${service.slug}`}
+            >
+              <ServiceAgencyTitle>{service.agency[0].name}</ServiceAgencyTitle>
+              <ServiceTitle>{service.name}</ServiceTitle>
+            </ServiceLink>
+          </BlockListItem>
         ))}
       </BlockList>
     </Container>

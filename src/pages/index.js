@@ -35,7 +35,7 @@ const Index = ({ data }) => {
       <TextContainer>
         <HomeContainer>
           <Flex flexWrap="wrap">
-            <Box width={[1, 2 / 3]}>
+            <Box width={[1, 2 / 3]} pr={[0, 3]}>
               <LeadParagraph>
                 Every government agency and service in Monterey County, right
                 here.
@@ -59,8 +59,8 @@ const Index = ({ data }) => {
                       }
                     })
                     results.sort((a, b) => {
-                      return a.name.toLowerCase().trim() <
-                        b.name.toLowerCase().trim()
+                      return a.sortName.toLowerCase().trim() <
+                        b.sortName.toLowerCase().trim()
                         ? -1
                         : 1
                     })
@@ -93,9 +93,16 @@ const Index = ({ data }) => {
               )}
             </Box>
             <Box width={[1, 1 / 3]} pl={[0, 3]}>
-              <Condor>
-                <img src={condor} alt="" />
-              </Condor>
+              <h2>Popular services</h2>
+              <ListUnstyled>
+                {data.allContentfulServiceType.nodes.map(serviceType => (
+                  <li>
+                    <Link to={`/service-type/${serviceType.slug}`}>
+                      {serviceType.name}
+                    </Link>
+                  </li>
+                ))}
+              </ListUnstyled>
             </Box>
           </Flex>
           <LeadParagraph></LeadParagraph>
@@ -109,9 +116,10 @@ export default Index
 
 export const query = graphql`
   {
-    allContentfulAgency(sort: { fields: [name] }) {
+    allContentfulAgency(sort: { fields: [sortName] }) {
       nodes {
         name
+        sortName
         slug
         type {
           id
@@ -122,6 +130,12 @@ export const query = graphql`
           id
           name
         }
+      }
+    }
+    allContentfulServiceType(sort: { fields: [name] }) {
+      nodes {
+        name
+        slug
       }
     }
   }
