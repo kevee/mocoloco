@@ -30,7 +30,7 @@ const AgencyPage = ({ pageContext }) => {
             <p>
               <AgencyType>{agency.type.name}</AgencyType>
             </p>
-            {agency.description && (
+            {agency.description && agency.description.childMarkdownRemark && (
               <AgencyDescription
                 dangerouslySetInnerHTML={{
                   __html: agency.description.childMarkdownRemark.html,
@@ -75,7 +75,7 @@ const AgencyPage = ({ pageContext }) => {
             )}
           </Box>
           <Box width={[1, 1 / 3]}>
-            {agency.meetingGeolocation && (
+            {agency.meetingGeolocation && typeof window !== 'undefined' && (
               <MeetingLocationMap location={agency.meetingGeolocation} />
             )}
             {agency.meetingAddress && (
