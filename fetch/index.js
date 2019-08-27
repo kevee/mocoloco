@@ -6,7 +6,7 @@ require('dotenv').config()
 
 const deliveryClient = contentfulDelivery.createClient({
   space: process.env.MOCOLOCO_FETCH_CONTENTFUL_SPACE,
-  accessToken: process.env.MOCOLOCO_FETCH_CONTENTFUL_DELIVERY_API
+  accessToken: process.env.MOCOLOCO_FETCH_CONTENTFUL_DELIVERY_API,
 })
 
 report.info('Fetching agency info from Contentful')
@@ -14,20 +14,22 @@ report.info('Fetching agency info from Contentful')
 deliveryClient
   .getEntries({
     content_type: 'agency',
-    'fields.fetchKey[exists]': true
+    'fields.fetchKey[exists]': true,
   })
   .then(entries => {
     const agencies = []
     entries.items.forEach(entry => {
-      agencies.push({
-        id: entry.sys.id,
-        fetchKey: entry.fields.fetchKey,
-        name: entry.fields.name
-      })
+      if (!process.argv[2] || process.argv[2] === entry.fields.fetchKey) {
+        agencies.push({
+          id: entry.sys.id,
+          fetchKey: entry.fields.fetchKey,
+          name: entry.fields.name,
+        })
+      }
     })
     deliveryClient
       .getEntries({
-        content_type: 'agenda'
+        content_type: 'agenda',
       })
       .then(existing => {
         const existingAgendas = []

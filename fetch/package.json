@@ -12,6 +12,7 @@
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
     "node-object-hash": "^1.4.2",
+    "rss-parser": "^3.7.2",
     "yurnalist": "^1.0.5"
   },
   "scripts": {
