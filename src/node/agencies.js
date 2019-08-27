@@ -19,6 +19,7 @@ module.exports = (graphql, actions) => {
               nodes {
                 id
                 name
+                homepage
                 slug
                 description {
                   childMarkdownRemark {

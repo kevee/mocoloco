@@ -10,6 +10,8 @@ import { InfoPane, InfoLinkPane } from '../components/common/info-pane'
 import { ServiceList } from '../components/common/services'
 import { Flex, Box } from '../components/common/grid'
 import Address from '../components/common/address'
+import { ButtonAnchor } from '../components/common/button'
+import ExternalLink from '../components/common/external-link'
 
 const AgencyType = styled.strong`
   font-size: 1.4rem;
@@ -36,6 +38,15 @@ const AgencyPage = ({ pageContext }) => {
                   __html: agency.description.childMarkdownRemark.html,
                 }}
               ></AgencyDescription>
+            )}
+            {agency.homepage && (
+              <ButtonAnchor
+                target="_blank"
+                rel="nofollow noopener"
+                href={agency.homepage}
+              >
+                Visit website <ExternalLink />
+              </ButtonAnchor>
             )}
           </Box>
           <Box width={[1, 1 / 3]}>
