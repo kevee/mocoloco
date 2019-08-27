@@ -39,7 +39,16 @@
     "react-leaflet": "^2.4.0",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "cheerio": "^1.0.0-rc.3",
+    "contentful": "^7.9.1",
+    "contentful-management": "^5.9.0",
+    "esm": "^3.2.25",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "node-object-hash": "^1.4.2",
+    "rss-parser": "^3.7.2",
+    "yurnalist": "^1.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
