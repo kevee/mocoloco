@@ -8,12 +8,13 @@ import { Container } from '../../common/container'
 import { Flex, Box } from '../../common/grid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
+import { fontsBlack } from '../../../style/font-families'
 
 const Brand = styled(Link)`
   font-size: 1.3rem;
   color: ${colors.primary.dark} !important;
   text-decoration: none;
-  font-family: 'Public Sans black';
+  font-family: ${fontsBlack.join(',')};
   &:hover {
     text-decoration: underline;
   }

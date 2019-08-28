@@ -7,10 +7,11 @@ import { LeadParagraph, SectionTitle } from '../components/common/type'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { InfoPane, InfoLinkPane } from '../components/common/info-pane'
+import { AgendaList } from '../components/common/agenda-list'
 import { ServiceList } from '../components/common/services'
 import { Flex, Box } from '../components/common/grid'
 import Address from '../components/common/address'
-import { ButtonAnchor } from '../components/common/button'
+import { ButtonAnchor, ButtonLink } from '../components/common/button'
 import ExternalLink from '../components/common/external-link'
 
 const AgencyType = styled.strong`
@@ -22,7 +23,7 @@ const AgencyDescription = styled.div`
 `
 
 const AgencyPage = ({ pageContext }) => {
-  const { agency } = pageContext
+  const { agency, agendas } = pageContext
   return (
     <Layout title={agency.name}>
       <Container>
@@ -69,6 +70,17 @@ const AgencyPage = ({ pageContext }) => {
               <LeadParagraph>
                 {agency.meetingDescription.meetingDescription}
               </LeadParagraph>
+            )}
+            {agency.agenda && agency.agenda.length > 0 && (
+              <p>
+                <ButtonLink to={`/agency/${agency.slug}/meetings`}>
+                  View meetings
+                </ButtonLink>
+              </p>
+            )}
+            <h3>Upcoming meetings</h3>
+            {agendas.length > 0 && (
+              <AgendaList agency={agency} agendas={agendas} />
             )}
             {agency.meetingAgendasLink && (
               <InfoLinkPane

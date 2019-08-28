@@ -1,5 +1,6 @@
 const report = require('gatsby-cli/lib/reporter')
 const path = require('path')
+const moment = require('moment')
 
 module.exports = (graphql, actions) => {
   const { createPage } = actions
@@ -21,6 +22,17 @@ module.exports = (graphql, actions) => {
                 name
                 homepage
                 slug
+                agenda {
+                  id
+                  name
+                  dateTime(formatString: "MMMM D, YYYY")
+                  dateTimeFromNow: dateTime(fromNow: true)
+                  dateTimeStamp: dateTime(formatString: "X")
+                  videoLink
+                  minutesLink
+                  agendaLink
+                  agendaPacketLink
+                }
                 description {
                   childMarkdownRemark {
                     html
@@ -89,11 +101,33 @@ module.exports = (graphql, actions) => {
           agencies.push(agency)
         })
         agencies.forEach(async agency => {
+          let agendas = []
+          const currentTimestamp = moment().unix()
+          if (agency.agenda) {
+            agency.agenda.forEach(agenda => {
+              if (agenda.dateTimeStamp > currentTimestamp) {
+                agendas.push(agenda)
+              }
+            })
+          }
+          if (agendas.length) {
+            agendas = agendas.sort((a, b) => {
+              if (a.dateTimeStamp < b.dateTimeStamp) {
+                return -1
+              }
+              if (a.dateTimeStamp > b.dateTimeStamp) {
+                return 1
+              }
+              return 0
+            })
+          }
+          agendas = agendas.slice(0, 5)
           createPage({
             path: `agency/${agency.slug}`,
             component: agencyTemplate,
             context: {
               agency: agency,
+              agendas: agendas,
             },
           })
         })
