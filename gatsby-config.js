@@ -65,5 +65,15 @@ module.exports = {
         linkStyles: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-146837376-1',
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        cookieDomain: 'mocoloco.org',
+      },
+    },
   ],
 }
