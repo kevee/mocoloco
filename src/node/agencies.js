@@ -2,10 +2,21 @@ const report = require('gatsby-cli/lib/reporter')
 const path = require('path')
 const moment = require('moment')
 
+const sortAgendas = (a, b) => {
+  if (a.dateTimeStamp < b.dateTimeStamp) {
+    return -1
+  }
+  if (a.dateTimeStamp > b.dateTimeStamp) {
+    return 1
+  }
+  return 0
+}
+
 module.exports = (graphql, actions) => {
   const { createPage } = actions
   return new Promise((resolve, reject) => {
     const agencyTemplate = path.resolve(`src/templates/agency.js`)
+    const meetingListTemplate = path.resolve(`src/templates/meeting-list.js`)
     resolve(
       graphql(
         `
@@ -102,24 +113,21 @@ module.exports = (graphql, actions) => {
         })
         agencies.forEach(async agency => {
           let agendas = []
+          let allAgendas = []
           const currentTimestamp = moment().unix()
           if (agency.agenda) {
             agency.agenda.forEach(agenda => {
+              allAgendas.push(agenda)
               if (agenda.dateTimeStamp > currentTimestamp) {
                 agendas.push(agenda)
               }
             })
           }
           if (agendas.length) {
-            agendas = agendas.sort((a, b) => {
-              if (a.dateTimeStamp < b.dateTimeStamp) {
-                return -1
-              }
-              if (a.dateTimeStamp > b.dateTimeStamp) {
-                return 1
-              }
-              return 0
-            })
+            agendas = agendas.sort(sortAgendas)
+          }
+          if (allAgendas.length) {
+            allAgendas = allAgendas.sort(sortAgendas)
           }
           agendas = agendas.slice(0, 5)
           createPage({
@@ -128,6 +136,14 @@ module.exports = (graphql, actions) => {
             context: {
               agency: agency,
               agendas: agendas,
+            },
+          })
+          createPage({
+            path: `agency/${agency.slug}/meetings`,
+            component: meetingListTemplate,
+            context: {
+              agency: agency,
+              agendas: allAgendas,
             },
           })
         })
